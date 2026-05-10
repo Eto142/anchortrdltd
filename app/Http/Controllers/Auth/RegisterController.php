@@ -31,8 +31,32 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('user.dashboard')->with('success', 'Registration successful. Welcome!');
+        return redirect()->route('register.profile');
     }
 
+    public function showProfileSetup()
+    {
+        return view('auth.profile-setup');
+    }
 
+    public function saveProfile(Request $request)
+    {
+        $request->validate([
+            'phone'   => 'required|string|max:30',
+            'country' => 'required|string|max:100',
+            'state'   => 'nullable|string|max:100',
+            'address' => 'nullable|string|max:255',
+            'dob'     => 'nullable|date|before:today',
+        ]);
+
+        auth()->user()->update([
+            'phone'   => $request->phone,
+            'country' => $request->country,
+            'state'   => $request->state,
+            'address' => $request->address,
+            'dob'     => $request->dob,
+        ]);
+
+        return redirect()->route('user.dashboard')->with('success', 'Welcome! Your profile has been set up.');
+    }
 }

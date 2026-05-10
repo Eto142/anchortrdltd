@@ -33,6 +33,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+Route::get('/register/profile-setup', [RegisterController::class, 'showProfileSetup'])->name('register.profile')->middleware('auth');
+Route::post('/register/profile-setup', [RegisterController::class, 'saveProfile'])->name('register.profile.save')->middleware('auth');
 
 // User dashboard
 Route::middleware('auth')->group(function () {
