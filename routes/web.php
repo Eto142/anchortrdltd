@@ -51,6 +51,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/profile', [ProfileController::class, 'update'])->name('user.profile.update');
     Route::get('/user/settings', [ProfileController::class, 'settings'])->name('user.settings');
     Route::get('/user/support', [DashboardController::class, 'support'])->name('user.support');
+
+    // Transfer routes
+    Route::get('/user/transfer', fn() => view('user.transfer-options'))->name('user.transfer');
+    Route::get('/user/transfer/domestic', fn() => view('user.domestic-transfer'))->name('user.transfer.domestic');
+    Route::get('/user/transfer/international', fn() => view('user.international-transfer'))->name('user.transfer.international');
+    Route::get('/user/transfer/info', fn() => view('user.transfer-info'))->name('user.transfer.info');
 });
 
 

@@ -26,7 +26,7 @@
             </div>
             <nav class="nav-menu">
                 <span class="nav-section-label">Main</span>
-                <a href="#" class="nav-item active"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+                <a href="{{ route('user.dashboard') }}" class="nav-item active"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
                 <a href="{{ route('user.deposit') }}" class="nav-item"><i class="bi bi-cash-coin"></i><span>Deposit</span></a>
                 <a href="{{ route('user.invest') }}" class="nav-item"><i class="bi bi-graph-up-arrow"></i><span>Invest</span></a>
                 <a href="{{ route('user.withdraw') }}" class="nav-item"><i class="bi bi-arrow-up-circle"></i><span>Withdraw</span></a>

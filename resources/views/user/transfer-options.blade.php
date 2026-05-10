@@ -74,7 +74,7 @@
         <div class="row g-4">
             <!-- Domestic Transfer -->
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('user.transfer.domestic') }}" class="text-decoration-none">
                     <div class="option-card">
                         <div class="option-icon">
                             <i class="bi bi-bank"></i>
@@ -87,7 +87,7 @@
 
             <!-- International Transfer -->
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('user.transfer.international') }}" class="text-decoration-none">
                     <div class="option-card">
                         <div class="option-icon">
                             <i class="bi bi-globe"></i>

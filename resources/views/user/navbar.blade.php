@@ -25,15 +25,15 @@
 
             <!-- Navigation Menu -->
             <nav class="nav-menu">
-                <a href="#" class="nav-item active">
+                <a href="{{ route('user.dashboard') }}" class="nav-item active">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
-                 <a href="#" class="nav-item">
+                 <a href="{{ route('user.transfer') }}" class="nav-item">
                     <i class="bi bi-arrow-left-right"></i>
                     <span>Transfers</span>
                 </a>
-                <a href="#" class="nav-item">
+                <a href="{{ route('user.profile') }}" class="nav-item">
                     <i class="bi bi-wallet2"></i>
                     <span>Profile</span>
                 </a>
@@ -58,11 +58,14 @@
                     <i class="bi bi-shield-check"></i>
                     <span>Security</span>
                 </a> --}}
-                <a href="#" class="nav-item">
+                <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('navbar-logout-form').submit();">
                     <i class="bi bi-gear"></i>
                     <span>Logout</span>
                 </a>
             </nav>
+
+            {{-- Hidden logout form --}}
+            <form id="navbar-logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
 
             <!-- Sidebar Footer -->
             <div class="sidebar-footer">
@@ -105,7 +108,7 @@
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <div class="dropdown-menu" id="dropdownMenu">
-                        <a href="#" class="dropdown-item" id="profileLink">
+                        <a href="{{ route('user.profile') }}" class="dropdown-item" id="profileLink">
                             <i class="bi bi-person"></i>
                             <span>Profile</span>
                         </a>
@@ -117,7 +120,7 @@
                             <i class="bi bi-shield-check"></i>
                             <span>Security</span>
                         </a> --}}
-                        <a href="#" class="dropdown-item text-danger" id="logoutLink">
+                        <a href="#" class="dropdown-item text-danger" id="logoutLink" onclick="event.preventDefault(); document.getElementById('navbar-logout-form').submit();">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Logout</span>
                         </a>
